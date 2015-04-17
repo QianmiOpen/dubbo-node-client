@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ofpay/dubbo-node-client/issues"
   },
-  "homepage": "https://github.com/ofpay/dubbo-node-client"
+  "homepage": "https://github.com/ofpay/dubbo-node-client",
+  "dependencies": {
+    "node-zookeeper-client":"0.2.2",
+    "q": "*",
+    "underscore": "*",
+    "request": "*"
+  }
 }
