@@ -1,4 +1,14 @@
 
+# 如何安装
+
+[Node.js](http://nodejs.org).
+
+[![NPM](https://nodei.co/npm/dubbo-node-client.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/dubbo-node-client/)
+
+npm install dubbo-node-client
+
+---
+
 # 如何使用
 
 ## 服务提供者
