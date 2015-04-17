@@ -8,9 +8,7 @@ dubboClient.config(require('./dubbo.config.js'));
 var userProvider = dubboClient.getService('com.ofpay.demo.api.UserProvider');
 
 //
-setTimeout(function () {
-    userProvider.queryAll()
-        .then(function (ddd) {
-            console.log(ddd);
-        });
-}, 1000);
+userProvider.call('queryAll')
+    .then(function (ddd) {
+        console.log(ddd);
+    });
