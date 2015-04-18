@@ -11,4 +11,7 @@ var userProvider = dubboClient.getService('com.ofpay.demo.api.UserProvider');
 userProvider.call('queryAll')
     .then(function (ddd) {
         console.log(ddd);
+    })
+    .catch(function (err) {
+        console.error(err);
     });
