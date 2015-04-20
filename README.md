@@ -36,7 +36,7 @@ var dubboClient = require('dubbo-node-client');
 dubboClient.config(require('./dubbo.config.js'));
 
 //获取serivce
-var phoneNoCheckService = dubboClient.getService('com.ofpay.ofdc.api.phone.PhoneNoCheckProvider');
+var phoneNoCheckService = dubboClient.getService('com.ofpay.ofdc.api.phone.PhoneNoCheckProvider', version, group);
 
 //调用方式一, 这种可以立即调用, 无需延迟
 phoneNoCheckService.call('isPhone', "13999999999")
