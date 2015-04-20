@@ -1,5 +1,6 @@
 var Config = require('./lib/config/index'),
     Invoker = require('./lib/rpc/api/invoker/index'),
+    InvokerDesc = require('./lib/rpc/api/invoker/desc'),
     InvokerProxy = require('./lib/rpc/api/invoker/proxy'),
     Registry = require('./lib/registry/index');
 
@@ -23,11 +24,12 @@ module.exports = {
     /**
      * rpc调用, 主要调用入口
      */
-    getService: function (serviceName, group, version) {
-        var invoker = Registry.getInvoker(serviceName, group, version);
+    getService: function (serviceName, version, group) {
+        var invokerDesc = new InvokerDesc(serviceName, group, version),
+            invoker = Registry.getInvoker(invokerDesc);
         if (!invoker) {
-            invoker = new Invoker(serviceName);
-            Registry.register(serviceName, new InvokerProxy(invoker));
+            invoker = new Invoker(invokerDesc);
+            Registry.register(invokerDesc, new InvokerProxy(invoker, invokerDesc));
         }
         return invoker;
     }

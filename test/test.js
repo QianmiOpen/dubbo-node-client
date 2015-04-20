@@ -5,13 +5,11 @@ var _ = require('underscore'),
 dubboClient.config(require('./dubbo.config.js'));
 
 ////获取serivce
-var userProvider = dubboClient.getService('com.ofpay.demo.api.UserProvider');
+var catQueryProvider = dubboClient.getService('com.qianmi.pc.api.cat.StandardCatQueryProvider', '1.2.3');
 
-//
-userProvider.call('queryAll')
-    .then(function (ddd) {
-        console.log(ddd);
-    })
-    .catch(function (err) {
-        console.error(err);
-    });
+setTimeout(function(){
+    for(var k in catQueryProvider){
+        console.info(k);
+    }
+}, 1000)
+
