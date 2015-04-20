@@ -7,9 +7,17 @@ dubboClient.config(require('./dubbo.config.js'));
 ////获取serivce
 var catQueryProvider = dubboClient.getService('com.qianmi.pc.api.cat.StandardCatQueryProvider', '1.2.3');
 
-setTimeout(function(){
-    for(var k in catQueryProvider){
-        console.info(k);
-    }
-}, 1000)
+//setTimeout(function(){
+//    for(var k in catQueryProvider){
+//        console.info(k);
+//    }
+//}, 1000)
+
+catQueryProvider.call('listByParentId', 111)
+    .then(function (r) {
+        console.info(r);
+    })
+    .catch(function (e) {
+        console.error(JSON.stringify(e));
+    });
 
