@@ -1,6 +1,6 @@
 {
   "name": "dubbo-node-client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "the node module of dubbo client",
   "main": "index.js",
   "scripts": {
