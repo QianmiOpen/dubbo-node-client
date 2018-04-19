@@ -10,7 +10,7 @@ npm install dubbo-node-client
 
 # 注意
 
-<font color=red> 该项目只支持 [jsonrpc协议](https://github.com/ofpay/dubbo-rpc-jsonrpc), 不支持 dubbo协议的服务提供者</font>
+<font color=red> 该项目只支持 [jsonrpc协议](https://github.com/ofpay/dubbo-rpc-jsonrpc), 支持 dubbo协议的服务提供者</font>
 
 ---
 
@@ -60,4 +60,25 @@ function doFoo(req, res){
             });
 }
 
+
+//新增 DUBBO方式调用如下：
+
+////获取serivce
+var GoodsSkuService = dubboClient.getService('com.xxx.dubbo.coach.api.goods.GoodsSkuService', '1.0');
+
+// dubbo协议方式调用 以私教为例
+var data = {
+    "$class": "com.xxx.dubbo.coach.api.goods.request.LessonSkuTypeReq",
+    "$": {"goodsNo": "01241", "coachId": 120, "userId": 105424}
+};
+GoodsSkuService.callRpc('goodsSkuDetail', data)
+    .then(function (r) {
+        console.info(r);
+        process.exit(0);
+    })
+    .catch(function (e) {
+        console.error(JSON.stringify(e));
+        process.exit(0);
+    });
+}
 ```

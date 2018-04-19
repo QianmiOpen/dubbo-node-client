@@ -5,11 +5,11 @@ var _ = require('underscore'),
 dubboClient.config(require('./dubbo.config.js'));
 
 ////获取serivce
-var catQueryProvider = dubboClient.getService('com.lefit.dubbo.coach.api.goods.GoodsSkuService', '1.0');
+var catQueryProvider = dubboClient.getService('com.xxx.dubbo.coach.api.goods.GoodsSkuService', '1.0');
 
 // dubbo协议方式调用
 var data = {
-	"$class": "com.lefit.dubbo.coach.api.goods.request.LessonSkuTypeReq",
+	"$class": "com.xxx.dubbo.coach.api.goods.request.LessonSkuTypeReq",
 	"$": {"goodsNo": "01241", "coachId": 120, "userId": 105424}
 };
 catQueryProvider.callRpc('goodsSkuDetail', data)
