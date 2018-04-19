@@ -20,6 +20,7 @@
     "node-zookeeper-client":"0.2.2",
     "q": "*",
     "underscore": "*",
-    "request": "*"
+    "request": "*",
+    "hessian.js": "^2.1.8"
   }
 }
