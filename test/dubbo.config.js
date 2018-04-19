@@ -17,7 +17,16 @@ module.exports = {
     /**
      * 注册中心
      */
-    registry: '172.19.65.33:2181',
+    registry: '172.16.150.60:2181',
+
+    /**
+    *  dubbo config
+    */
+    dubbo: {
+            providerTimeout: 3,
+            weight: 1,
+            protocol: "dubbo" //添加协议类型，支持rpc调用 默认为jsonrpc, 指定协议则初始化过程中只按照配置协议加载到缓存
+    },
 
     /**
      * 负载均衡规则, 目前只有轮询
@@ -27,5 +36,5 @@ module.exports = {
     /**
      * 懒加载, 用于开发阶段, 快速启动
      */
-    lazy: true
+    lazy: false
 };

@@ -22,7 +22,8 @@ module.exports = {
     },
 
     /**
-     * rpc调用, 主要调用入口
+     * jsonrpc || dubbo 调用, 主要调用入口
+     * 不能同时使用jsonrpc或dubbo协议调用服务
      */
     getService: function (serviceName, version, group) {
         var invokerDesc = new InvokerDesc(serviceName, group, version),
